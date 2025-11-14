@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio - Chesia P.M. Silaen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #000000; /* Hitam utama */
+      --secondary: #F5F5F5; /* Abu lembut */
+      --bg: #FFFFFF; /* Putih bersih */
+      --text: #1E1E1E;
+      --muted: #6B7280; /* Abu teks */
+      --accent: #111111; /* Aksen hitam pekat */
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Open Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+    }
+
+    .logo {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 22px;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* === HERO === */
+    #home {
+      margin-top: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 8%;
+      gap: 60px;
+      background: var(--secondary);
+      color: var(--accent);
+      border-radius: 0 0 80px 80px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 1s ease;
+    }
+
+    .home-text {
+      flex: 1;
+      animation: slideInLeft 1s ease;
+    }
+
+    .home-text h1 {
+      font-size: 38px;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .home-text p {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 22px;
+      color: var(--muted);
+    }
+
+    .home-links a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin-right: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .home-links a:hover {
+      background: #333;
+      transform: translateY(-3px);
+    }
+
+    .home-img {
+      flex: 1;
+      text-align: center;
+      animation: slideInRight 1s ease;
+    }
+
+    .home-img img {
+      width: 280px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.4s;
+      filter: grayscale(20%);
+    }
+
+    .home-img img:hover {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    /* === SECTION GENERAL === */
+    section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 45px 30px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      animation: fadeUp 1s ease;
+    }
+
+    h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* === ABOUT === */
+    #about p {
+      color: var(--muted);
+      font-size: 15.5px;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    /* === SKILLS === */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: var(--secondary);
+      color: var(--accent);
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* === PROJECTS === */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: grayscale(40%);
+      transition: 0.3s;
+    }
+
+    .project-card img:hover {
+      filter: grayscale(0%);
+    }
+
+    .project-card h3 {
+      font-size: 17px;
+      color: var(--accent);
+      margin: 15px;
+    }
+
+    .project-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      margin: 0 15px 20px;
+    }
+
+    /* === ORGANIZATION === */
+    .org-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .org-list li {
+      background: var(--secondary);
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      border-left: 5px solid var(--accent);
+      transition: 0.3s;
+    }
+
+    .org-list li:hover {
+      background: #EAEAEA;
+      transform: translateX(5px);
+    }
+
+    .org-list b {
+      color: var(--accent);
+    }
+
+    /* === CONTACT === */
+    #contact {
+      text-align: center;
+    }
+
+    #contact p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    #contact a {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    #contact a:hover {
+      color: #333;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: var(--secondary);
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 50px;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInLeft { from { transform: translateX(-40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 900px) {
+      #home {
+        flex-direction: column;
+        text-align: center;
+      }
+      .home-img img {
+        width: 220px;
+      }
+      section {
+        margin: 60px 20px;
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Chesia P.M. Silaen</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#organization">Organisasi</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="home-text">
+      <h1>Hai, Saya <br>Chesia P.M. Silaen</h1>
+      <p>Mahasiswa D3 Teknologi Komputer di Institut Teknologi Del yang memiliki ketertarikan pada Frontend Development, software engineer, dan Data Analysis.</p>
+      <div class="home-links">
+        <a href="mailto:chesia.silaen@email.com">✉ chesiasilaen78377@gmail.com</a>
+        <a href="tel:+6281263360920">📞 082275999505</a>
+        <a href="https://www.linkedin.com/in/chesia-silaen-94491432b" target="_blank">🔗 LinkedIn</a>
+</a>
+      </div>
+    </div>
+    <div class="home-img">
+      <img src="chesia.jpg" alt="Foto Chesia">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah mahasiswa D3 Teknologi Komputer yang memiliki minat dalam dunia IT, terutama pada bidang Frontend Development, software engineer, dan Analisis Data. Saya memiliki kemampuan berpikir kritis, komunikasi yang baik, serta semangat belajar tinggi untuk berkontribusi dalam tim profesional dan mengembangkan pengalaman di dunia industri teknologi.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Keahlian</h2>
+    <div class="skills-container">
+      <div class="skill-card">HTML & CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">software engineer</div>
+      <div class="skill-card">C/C++</div>
+      <div class="skill-card">Data Analysis</div>
+      <div class="skill-card">Teamwork</div>
+      <div class="skill-card">IT Support</div>
+      <div class="skill-card">Communication</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Proyek</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="Poster PA_1.jpg" alt="Project 1">
+        <h3>Website Civitas IT.Del</h3>
+        <p>Mengembangkan situs web yang interaktif dan ramah pengguna yang menyediakan informasi lengkap tentang dosen, staf administrasi, asrama, kantin, keamanan, kebersihan, dan tim pemeliharaan. Situs web ini mencakup foto, profil, dan detail akademik, serta dilengkapi dengan fitur pencarian dan komentar untuk meningkatkan interaksi pengguna dan mempererat hubungan dalam komunitas Institut Teknologi Del.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="Desain Alat.png" alt="Project 2">
+        <h3>eFeeder: Automatic Feeding System Based on IoT with Control via Telegram</h3>
+        <p>Mengembangkan sistem pemberian pakan otomatis berbasis IoT yang dapat dikendalikan melalui Telegram untuk membantu petani mengelola jadwal pemberian pakan secara efisien dan akurat, serta mengatasi kendala yang dihadapi saat memberi pakan tepat waktu karena kesibukan.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="Wazuh .png" alt="Project 3">
+        <h3>Centralized Wazuh with Distributed SIEM to support Network Auditing</h3>
+        <p>Analyzed log data from various network sources using the open-source SIEM platform Wazuh to support network auditing in compliance with standard network security auditing practices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZATION -->
+  <section id="organization">
+    <h2>Pengalaman Organisasi</h2>
+    <ul class="org-list">
+      <li><b>Himpunan Mahasiswa Teknologi Komputer (HIMATEK)</b> — IT Del-Laguboti,Indonesia (2023)<br>Mengembangkan dan meningkatkan kualitas pendidikan di dalam himpunan program studi.</li>
+      <li><b>Panitia Inagurawi dan Wisuda IT Del </b> — Divisi Umum (2024)<br>Membantu dalam menyelenggarakan dan mengoordinasikan acara Inaugurasi dan Wisuda 2024, termasuk persiapan acara, pengelolaan logistik, serta dukungan di lokasi untuk memastikan kelancaran pelaksanaan acara.</li>
+      <li><b>Del Dance Drama Club (3DC)</b> — IT Del-Laguboti,Indonesia (2025)<br>Berpartisipasi sebagai anggota divisi drama dalam mendukung produksi teater, mengikuti latihan serta pertunjukan pada acara besar, dan berkontribusi aktif dalam kegiatan organisasi.</li>
+      <li><b>Department of Order and Discipline (DEPKEPDIS)</b> — IT Del-Laguboti,Indonesia (2024)<br>Membantu menjaga kedisiplinan mahasiswa serta memastikan kepatuhan terhadap peraturan kampus, mendukung pelaksanaan program disiplin dan kampanye kesadaran, serta berkolaborasi dengan departemen lain untuk menciptakan lingkungan kampus yang tertib dan saling menghormati.</li>
+      </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Kontak</h2>
+    <p>Hubungi saya melalui:</p>
+    <a href="mailto:chesiasilaen78377@gmail.com">✉ chesiasilaen78377@gmail.com</a>
+    <a href="tel:+6282275999505">📞 082275999505</a>
+    <a href="#"><a href="https://www.linkedin.com/in/chesia-silaen-94491432b" target="_blank">🔗 LinkedIn</a>
+</a>
+  </section>
+
+  <footer>
+    © 2025 Chesia P.M. Silaen — Institut Teknologi Del
+  </footer>
+</body>
+</html>
